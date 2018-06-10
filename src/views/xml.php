@@ -14,7 +14,11 @@ if (!empty($item['translations'])) {
 
 if (!empty($item['alternates'])) {
   foreach ($item['alternates'] as $alternate) {
-    echo "\t\t" . '<xhtml:link rel="alternate" media="' . $alternate['media'] . '" href="' . $alternate['url'] . '" />' . "\n";
+    if(alternate['media'] == 'amp'){
+      echo "\t\t" . '<xhtml:link rel="amphtml" href="' . $alternate['url'] . '" />' . "\n";
+    }else{
+      echo "\t\t" . '<xhtml:link rel="alternate" media="' . $alternate['media'] . '" href="' . $alternate['url'] . '" />' . "\n";
+    }
   }
 }
 
